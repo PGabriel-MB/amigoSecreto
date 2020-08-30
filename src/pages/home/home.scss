@@ -1,3 +1,19 @@
 page-home {
+    #conteudo {
+        background-color: #f3605b;
 
+        div ion-item{
+            border-radius: 10px;
+        }
+    }
+
+    .scroll-content {
+        display: flex;
+        justify-content: center;
+        
+        > div {
+            height: 18rem;
+            margin: auto;
+        }
+    }
 }

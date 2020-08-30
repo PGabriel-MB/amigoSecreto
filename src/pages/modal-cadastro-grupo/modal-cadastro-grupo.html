@@ -1,0 +1,28 @@
+<!--
+  Generated template for the ModalCadastroGrupoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>modalCadastroGrupo</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding>
+  <div class="iconeX">
+    <ion-icon ios="ios-close" md="md-close" (click)="fecharModal()"></ion-icon>
+  </div>
+  <div>
+    <h2>Cadastro de Grupo</h2>
+  </div>
+  <ion-item padding>
+    <ion-input type="text" placeholder="Nome do Grupo" [(ngModel)]="nomeGrupo" clearInput></ion-input>
+  </ion-item>
+  <ion-item padding>
+    <ion-datetime placeholder="Data da Entrega" displayFormat="DD/MM/YYYY" [(ngModel)]="dataEntrega" doneText="OK"
+      cancelText="Cancelar"></ion-datetime>
+  </ion-item>
+  <button ion-button color="danger" (click)="cadastrarGrupo()">Cadastrar</button>
+</ion-content>

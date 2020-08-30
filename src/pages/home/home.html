@@ -1,14 +1,16 @@
-<ion-header>
+<!--<ion-header>
   <ion-navbar>
     <ion-title>
       Ionic Blank
     </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header>-->
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v3">docs</a> will be your guide.
-  </p>
+<ion-content id="conteudo" padding text-center align-items-center>
+  <div>
+    <ion-item>
+      <ion-input placeholder="E-mail" type="email" [(ngModel)]="email" clearInput></ion-input>
+    </ion-item>
+    <button margin ion-button large="true" (click)="enviar()" type="submit">Entrar</button>
+  </div>
 </ion-content>

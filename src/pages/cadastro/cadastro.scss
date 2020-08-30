@@ -1,0 +1,17 @@
+page-cadastro {
+    #conteudo, #back {
+        background-color: #f3605b;
+        color: white;
+    }
+
+    #back {
+        border: none;
+        background-color: transparent;
+        box-shadow: unset;
+        font-size: 2em;
+    }
+    
+    div ion-item{
+        border-radius: 10px;
+    }
+}

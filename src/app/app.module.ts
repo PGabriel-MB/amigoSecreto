@@ -6,25 +6,45 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { CadastroPage } from '../pages/cadastro/cadastro';
+import { InicioPage } from '../pages/inicio/inicio';
+
+import { RequestApiProvider } from '../providers/request-api/request-api';
+import { StorageProvider } from '../providers/storage/storage';
+
+import { IonicStorageModule } from "@ionic/storage";
+import { ModalCadastroGrupoPage } from '../pages/modal-cadastro-grupo/modal-cadastro-grupo';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    CadastroPage,
+    InicioPage,
+    ModalCadastroGrupoPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot({
+      name: 'deviceStorage',
+      driverOrder: ["indexeddb", "sqlite", "websql"]
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    CadastroPage,
+    InicioPage,
+    ModalCadastroGrupoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RequestApiProvider,
+    StorageProvider
   ]
 })
 export class AppModule {}
