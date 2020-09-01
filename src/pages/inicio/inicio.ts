@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
 
 import { RequestApiProvider } from "../../providers/request-api/request-api";
 import { StorageProvider } from "../../providers/storage/storage";
 
 import { ModalCadastroGrupoPage } from "../modal-cadastro-grupo/modal-cadastro-grupo";
-
-/**
- * Generated class for the InicioPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HomePage } from '../home/home';
+import { MeusGruposPage } from '../meus-grupos/meus-grupos';
+import { InformacoesGrupoPage } from '../informacoes-grupo/informacoes-grupo';
 
 interface Usuario {
   email: string,
@@ -38,7 +34,8 @@ export class InicioPage {
       public navParams: NavParams,
       public strg: StorageProvider,
       public requestApi: RequestApiProvider,
-      public modalCtrl: ModalController
+      public modalCtrl: ModalController,
+      public toastCtrl: ToastController
     ) {
     
   }
@@ -53,16 +50,31 @@ export class InicioPage {
 
   getGrupos() {
     this.requestApi.requestGet('grupo/busca/', { id: this.user._id }).then(async r => {
-      console.log('GRUPOS', await r);
+       this.grupos = await r.data;
     });
   }
 
   showModalCadGrupo(){
     let modal = this.modalCtrl.create(ModalCadastroGrupoPage, { idUser: this.user._id });
-    modal.onDidDismiss(() => {
-      // mostrar um aviso de cadastro de grupo
-      // realizado com sucesso!
+    modal.onDidDismiss((teste) => {
+      let toast = this.toastCtrl.create({message: 'Grupo cadastrado com sucesso!', duration: 3000, position: 'top', cssClass: 'toastFormat'});
+      if (teste) {
+        toast.present();
+      }
     });
     modal.present();
+  }
+
+  logOut() {
+    this.strg.clearUser();
+    this.navCtrl.setRoot(HomePage);
+  }
+
+  meusGrupos() {
+    this.navCtrl.setRoot(MeusGruposPage, { idUser: this.user._id });
+  }
+
+  informacoesGrupo(grupo: any){
+    this.navCtrl.push(InformacoesGrupoPage, { grupo })
   }
 }

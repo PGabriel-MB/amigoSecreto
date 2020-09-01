@@ -20,3 +20,14 @@
     margin: 1rem 1%;
     width: 98%;
 }
+
+#back, h1, h2, #myGroups, .btnGrupo{
+    color: #f3605b;
+}
+
+#back, #myGroups, .btnGrupo  {
+    border: none;
+    background-color: transparent;
+    box-shadow: unset;
+    font-size: 2em;
+}

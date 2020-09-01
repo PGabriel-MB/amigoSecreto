@@ -14,6 +14,8 @@ import { StorageProvider } from '../providers/storage/storage';
 
 import { IonicStorageModule } from "@ionic/storage";
 import { ModalCadastroGrupoPage } from '../pages/modal-cadastro-grupo/modal-cadastro-grupo';
+import { MeusGruposPage } from '../pages/meus-grupos/meus-grupos';
+import { InformacoesGrupoPage } from '../pages/informacoes-grupo/informacoes-grupo';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ModalCadastroGrupoPage } from '../pages/modal-cadastro-grupo/modal-cada
     HomePage,
     CadastroPage,
     InicioPage,
-    ModalCadastroGrupoPage
+    ModalCadastroGrupoPage,
+    MeusGruposPage,
+    InformacoesGrupoPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import { ModalCadastroGrupoPage } from '../pages/modal-cadastro-grupo/modal-cada
     HomePage,
     CadastroPage,
     InicioPage,
-    ModalCadastroGrupoPage
+    ModalCadastroGrupoPage,
+    MeusGruposPage,
+    InformacoesGrupoPage
   ],
   providers: [
     StatusBar,

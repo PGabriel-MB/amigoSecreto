@@ -7,8 +7,11 @@
 
 <ion-content padding text-center>
   <ion-row>
-    <button id="back" ion-button>
+    <button id="back" ion-button col-5 (click)="logOut()">
       <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+    </button>
+    <button col-5 id="myGroups" text-right (click)="meusGrupos()">
+      <ion-icon ios="ios-people" md="md-people"></ion-icon>
     </button>
   </ion-row>
   <div padding-vertical>
@@ -16,10 +19,12 @@
   </div>
   <ion-card>
     <ion-list inset>
-      <ion-item> grupo 1</ion-item>
-      <ion-item> grupo 2</ion-item>
-      <ion-item> grupo 3</ion-item>
-      <ion-item> grupo 4</ion-item>
+      <ion-item *ngFor="let grupo of grupos">
+        {{grupo.nome}}
+        <button ion-button (click)="informacoesGrupo(grupo)" class="btnGrupo">
+          <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright"></ion-icon>
+        </button>
+      </ion-item>
     </ion-list>
   </ion-card>
   <ion-fab right bottom>

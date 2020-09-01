@@ -41,14 +41,13 @@ export class ModalCadastroGrupoPage {
 
     this.requestApi.requestPost('grupo/cadastro', objGrupo).then(async r => {
       if(await r.status === 200){
-        console.log('FOI FILHAO!!', r);
-        this.fecharModal();
+        this.fecharModal(true);
       }
     });
   }
 
-  fecharModal() {
-    this.viewCtrl.dismiss()
+  fecharModal(cadastro: Boolean) {
+    this.viewCtrl.dismiss(cadastro);
   }
 
 }
