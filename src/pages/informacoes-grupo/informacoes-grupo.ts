@@ -27,7 +27,7 @@ export class InformacoesGrupoPage {
 
   enviarConvite() {
     if(this.emailUsuario){
-      // código para enviar e-mail
+      
     } else {
       let toast = this.toastCtrl.create({message: 'Preencha o campo de E-mail!', duration: 3000, position: 'top', cssClass: 'toastFormat'});
       toast.present();

@@ -33,10 +33,12 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
-  <ion-item>
-    <input type="email" name="" [(ngModel)]="emailUsuario">
-    <button ion-button (click)="enviarConvite()">
-      Enviar
-    </button>
+  <ion-item padding>
+    <ion-input type="email" name="" placeholder="E-mail do Convidado" [(ngModel)]="emailUsuario"></ion-input>
   </ion-item>
+  <div padding>
+    <button ion-button block color="danger" (click)="enviarConvite()" round padding>
+      Convidar
+    </button>
+  </div>
 </ion-content>
