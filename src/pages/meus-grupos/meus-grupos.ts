@@ -9,7 +9,12 @@ import { RequestApiProvider } from "../../providers/request-api/request-api";
 })
 export class MeusGruposPage {
   idUser: string;
-  grupos: Array<any>;
+  grupos: Array<any> = [
+    'Grupo 1',
+    'a gig freela',
+    'network da pyPró',
+    'faculdade TI'
+  ];
 
   constructor(
       public navCtrl: NavController,
@@ -26,8 +31,12 @@ export class MeusGruposPage {
 
   getGrupos() {
     this.requestApi.requestGet('grupo/buscaAceites', { id: this.idUser }).then(async r => {
-      console.log('OQ A APEI ME TRAZ', r.data);
+      //this.grupos = await r.data;
     });
+  }
+
+  irParaListaConvites(){
+
   }
 
 }

@@ -4,12 +4,31 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!--<ion-header>
   <ion-navbar>
     <ion-title>meusGrupos</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content padding>
   <!--Criar um link para a tela de aceite dos convites e lista aqui os grupos do qual vc faz parte-->
+  <ion-row>
+    <button id="back" ion-button col-5>
+      <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+    </button>
+    <button col-5 id="myGroups" text-right (click)="irParaListaConvites()">
+      <ion-icon ios="ios-archive" md="md-archive"></ion-icon>
+    </button>
+  </ion-row>
+  <div padding-vertical text-center>
+    <h1> Meus Grupos </h1>
+  </div>
+  <ion-list no-lines *ngIf="grupos.length > 0">
+    <button ion-item *ngFor="let grupo of grupos">
+      {{ grupo }}
+    </button> 
+  </ion-list>
+  <div *ngIf="grupos.length == 0">
+    <h4>Você não faz parte de nenhum grupo!</h4>
+  </div>
 </ion-content>
