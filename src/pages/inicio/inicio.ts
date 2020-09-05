@@ -9,16 +9,7 @@ import { HomePage } from '../home/home';
 import { MeusGruposPage } from '../meus-grupos/meus-grupos';
 import { InformacoesGrupoPage } from '../informacoes-grupo/informacoes-grupo';
 
-interface Usuario {
-  email: string,
-  hobby: string,
-  nome: string,
-  tamanhoCalca: string,
-  tamanhoCamisa: string,
-  tamanhoSapato: Number,
-  _id: string
-}
-
+import { Usuario } from "../../models/usuario";
 
 @IonicPage()
 @Component({
@@ -60,6 +51,7 @@ export class InicioPage {
       let toast = this.toastCtrl.create({message: 'Grupo cadastrado com sucesso!', duration: 3000, position: 'top', cssClass: 'toastFormat'});
       if (teste) {
         toast.present();
+        this.getGrupos();
       }
     });
     modal.present();

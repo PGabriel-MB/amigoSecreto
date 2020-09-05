@@ -1,0 +1,41 @@
+<!--
+  Generated template for the MeusGruposPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>
+  <ion-navbar>
+    <ion-title>meusGrupos</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding>
+  <ion-row>
+    <button id="back" ion-button navPop>
+      <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+    </button>
+  </ion-row>
+  <div padding-vertical text-center>
+    <h1> Convites Recebidos </h1>
+  </div>
+  <ion-list no-lines *ngIf="convites.length > 0">
+
+    <ion-item *ngFor="let convite of convites">
+      <ion-row>
+        <div>
+          {{ convite.nome }}
+          <br>
+          <p>Criado por {{ convite.criadoPor.nome }}</p>
+        </div>
+        <button ion-button round (click)="aceitarConvite(convite)">
+          <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>
+        </button>
+      </ion-row>
+    </ion-item>
+    
+  </ion-list>
+  <div *ngIf="convites.length == 0">
+    <h4>Você não possui convites...</h4>
+  </div>
+</ion-content>

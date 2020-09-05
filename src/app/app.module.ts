@@ -16,6 +16,9 @@ import { IonicStorageModule } from "@ionic/storage";
 import { ModalCadastroGrupoPage } from '../pages/modal-cadastro-grupo/modal-cadastro-grupo';
 import { MeusGruposPage } from '../pages/meus-grupos/meus-grupos';
 import { InformacoesGrupoPage } from '../pages/informacoes-grupo/informacoes-grupo';
+import { ConvitesPage } from '../pages/convites/convites';
+import { UtilsProvider } from '../providers/utils/utils';
+import { VisualizarGrupoAceitoPage } from '../pages/visualizar-grupo-aceito/visualizar-grupo-aceito';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { InformacoesGrupoPage } from '../pages/informacoes-grupo/informacoes-gru
     InicioPage,
     ModalCadastroGrupoPage,
     MeusGruposPage,
-    InformacoesGrupoPage
+    InformacoesGrupoPage,
+    ConvitesPage,
+    VisualizarGrupoAceitoPage
   ],
   imports: [
     BrowserModule,
@@ -43,14 +48,17 @@ import { InformacoesGrupoPage } from '../pages/informacoes-grupo/informacoes-gru
     InicioPage,
     ModalCadastroGrupoPage,
     MeusGruposPage,
-    InformacoesGrupoPage
+    InformacoesGrupoPage,
+    ConvitesPage,
+    VisualizarGrupoAceitoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RequestApiProvider,
-    StorageProvider
+    StorageProvider,
+    UtilsProvider
   ]
 })
 export class AppModule {}

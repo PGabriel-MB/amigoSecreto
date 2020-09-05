@@ -1,0 +1,30 @@
+.modal-wrapper {
+    opacity: 1;
+    transform: translateY(0px);
+    height: 100%;
+    background-color: rgba(0,0,0, 0.4);
+}
+
+page-visualizar-grupo-aceito {
+    .content {
+        color: #f3605b;
+        text-align: center;
+    }
+    .datetime{
+        padding: 13px 8px 13px 8px;
+    }
+    &.ion-page {
+        height: auto;
+        min-height: 50%;
+        width: 90%;
+        margin: 39% 5%;
+        border-radius: 2rem;
+    }
+    
+    .iconeX{
+        width: 100%;
+        text-align: right;
+        font-size: 2rem;
+        padding-right: 1rem;
+    }
+}

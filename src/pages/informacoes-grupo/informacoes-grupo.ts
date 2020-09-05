@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Toast, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RequestApiProvider } from '../../providers/request-api/request-api';
+import { UtilsProvider } from '../../providers/utils/utils';
 
 
 
@@ -17,7 +18,7 @@ export class InformacoesGrupoPage {
       public navCtrl: NavController,
       public navParams: NavParams,
       public requestApi: RequestApiProvider,
-      public toastCtrl: ToastController
+      public utils: UtilsProvider
     ) {
   }
 
@@ -27,10 +28,18 @@ export class InformacoesGrupoPage {
 
   enviarConvite() {
     if(this.emailUsuario){
-      
+
+      let body = {
+        grupoId: this.grupo._id,
+        email: this.emailUsuario
+      }
+
+      this.requestApi.requestPost('grupo/addUsuario', body).then(async r => {
+        this.utils.presentToast('Convite enviado com sucesso!');
+      });
     } else {
-      let toast = this.toastCtrl.create({message: 'Preencha o campo de E-mail!', duration: 3000, position: 'top', cssClass: 'toastFormat'});
-      toast.present();
+      this.utils.presentToast('Preencha o campo de E-mail!');
     }
   }
+
 } 

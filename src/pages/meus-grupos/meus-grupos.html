@@ -13,7 +13,7 @@
 <ion-content padding>
   <!--Criar um link para a tela de aceite dos convites e lista aqui os grupos do qual vc faz parte-->
   <ion-row>
-    <button id="back" ion-button col-5>
+    <button id="back" ion-button col-5 (click)="voltar()">
       <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
     </button>
     <button col-5 id="myGroups" text-right (click)="irParaListaConvites()">
@@ -24,10 +24,10 @@
     <h1> Meus Grupos </h1>
   </div>
   <ion-list no-lines *ngIf="grupos.length > 0">
-    <button ion-item *ngFor="let grupo of grupos">
-      {{ grupo }}
+    <button ion-item *ngFor="let grupo of grupos" (click)="verInfosGrupo(grupo)">
+      {{ grupo.nome }}
     </button> 
-  </ion-list>
+  </ion-list> 
   <div *ngIf="grupos.length == 0">
     <h4>Você não faz parte de nenhum grupo!</h4>
   </div>

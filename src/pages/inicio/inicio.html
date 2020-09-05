@@ -25,6 +25,9 @@
           <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright"></ion-icon>
         </button>
       </ion-item>
+      <ion-item *ngIf="grupos.lenght == 0">
+        <h4>Você ainda não criou nenhum grupo...</h4>
+      </ion-item>
     </ion-list>
   </ion-card>
   <ion-fab right bottom>
