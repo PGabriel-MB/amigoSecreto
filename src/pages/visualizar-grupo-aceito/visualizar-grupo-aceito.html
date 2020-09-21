@@ -9,13 +9,16 @@
     <ion-icon ios="ios-close" md="md-close" (click)="ok()"></ion-icon>
   </div>
   <div>
-    <h2>{{ grupo.nome }}</h2>
+    <h2>
+      {{ grupo.nome }}
+      <ion-icon *ngIf="grupo.foiSorteado" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
+    </h2>
   </div>
   <ion-item padding>
     <strong>Criado por:</strong> {{ grupo.criadoPor.nome }}
   </ion-item>
   <ion-item padding>
-    <strong></strong>
+      <strong>dataEntrega: </strong> {{ grupo.dataEntrega|date:"dd/MM/yyyy" }}
   </ion-item>
   <button ion-button block round color="danger" (click)="ok()">OK</button>
 </ion-content>

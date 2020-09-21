@@ -10,6 +10,7 @@ import { Grupo } from "../../models/grupo";
 export class VisualizarGrupoAceitoPage {
 
   grupo: Grupo = null;
+  dataEntrega: Date = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
@@ -19,7 +20,7 @@ export class VisualizarGrupoAceitoPage {
   }
   
   ionViewDidEnter(){
-    console.log(this.grupo)
+    console.log('grupo', this.grupo)
   }
 
   ok() {
