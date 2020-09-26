@@ -21,8 +21,7 @@
   </div>
   <ion-card>
     <ion-card-header>
-      <h2>{{ grupo.nome }}</h2>
-      <ion-icon *ngIf="foiSorteado" ios="ios-checkmark" md="md-checkmark"></ion-icon>
+      <h2>{{ grupo.nome }} <ion-icon class="icone-check"  *ngIf="grupo.foiSorteado" ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon> </h2>
     </ion-card-header>
     <ion-card-content>
       <ion-item>
@@ -31,14 +30,22 @@
       <ion-item>
         <strong>Entrega</strong> {{ grupo.dataEntrega|date:'dd/MM/yyyy' }}
       </ion-item>
+      <ion-item *ngIf="meuAmigo">
+        <strong>Meu Amigo: </strong> {{ meuAmigo.nome }}
+      </ion-item>
     </ion-card-content>
   </ion-card>
   <ion-item padding>
-    <ion-input type="email" name="" placeholder="E-mail do Convidado" [(ngModel)]="emailUsuario"></ion-input>
+    <ion-input type="email" [disabled]="grupo.foiSorteado" placeholder="E-mail do Convidado" [(ngModel)]="emailUsuario"></ion-input>
   </ion-item>
   <div padding>
-    <button ion-button block color="danger" (click)="enviarConvite()" round padding>
+    <button ion-button block color="danger" [disabled]="grupo.foiSorteado"  (click)="enviarConvite()" round padding>
       Convidar
+    </button>
+  </div>
+  <div padding>
+    <button ion-button block class="btn-sort" [disabled]="grupo.foiSorteado"  (click)="sortear(grupo)" round padding>
+      Sortear
     </button>
   </div>
 </ion-content>
