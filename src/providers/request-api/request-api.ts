@@ -15,14 +15,6 @@ export class RequestApiProvider {
   constructor() {
   }
   async requestGet (rota: string, params: any): Promise<any>{
-    // let req = await axios.get(this.url + rota + param).then(async r => {
-      
-    //   console.log('Resposta', r);
-    //   return await r;
-    // }).catch(erro => {
-
-    //   console.log('Erro: ', erro);
-    // });
     let req = await axios({
       method: 'GET',
       url: this.url + rota,

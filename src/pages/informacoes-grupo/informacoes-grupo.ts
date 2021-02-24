@@ -64,17 +64,6 @@ export class InformacoesGrupoPage {
     this.meuAmigo = await resultado[0].recebe
   }
 
-
-  // getSorteado(grupo){
-  //   let id = this.user._id;
-  //   let filter = grupo.sorteados.filter(sorteado => {
-  //     if (sorteado.entrega) {
-  //       return sorteado.entrega._id === id
-  //     }
-  //   })
-  //   return filter[0].recebe
-  // }
-
   sortear(grupo: any) {
     this.requestApi.requestGet('grupo/sortear', { grupoId: grupo._id }).then(async r => {
       this.utils.presentToast('Grupo sorteado com sucesso!');
